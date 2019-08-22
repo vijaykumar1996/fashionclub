@@ -48,7 +48,7 @@ SessionFactory sessionfactory;
 		}
 	}
 
-	public List<Supplier> listsupplier(Supplier supplier) {
+	public List<Supplier> listsupplier() {
 		Session session =sessionfactory.openSession();
 		Query query=session.createQuery("from Supplier");
 		List<Supplier> list=query.list();
