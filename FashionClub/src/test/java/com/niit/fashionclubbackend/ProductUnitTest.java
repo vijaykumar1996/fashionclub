@@ -5,10 +5,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import com.niit.bean.Product;
-import com.niit.bean.Supplier;
-import com.niit.dao.*;
+import com.niit.dao.InterfaceMethods;
 public class ProductUnitTest {
 @Autowired
 static InterfaceMethods interfacemethods;
@@ -25,7 +23,7 @@ public static void firstexecute(){
 public  void addproduct()
 {
 	Product p=new Product();
-	p.setProName("shirt");
+	p.setProName("jeans");
 	p.setProDesc("party wear");
 	p.setProprice(2000);
 	p.setStock(10);

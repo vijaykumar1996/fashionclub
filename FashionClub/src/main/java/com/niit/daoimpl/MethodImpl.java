@@ -46,7 +46,7 @@ SessionFactory sessionfactory;
 
 	public List<Product> alldetails() {
       Session s=sessionfactory.openSession();
-      Query q=s.createQuery("from product");
+      Query q=s.createQuery("from Product");
       List<Product> alldetails=q.list();
       s.close();
 		return alldetails;

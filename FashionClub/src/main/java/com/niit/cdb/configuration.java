@@ -6,8 +6,8 @@ import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.*;
 import org.springframework.orm.hibernate5.*;
 import org.springframework.transaction.annotation.*;
-import com.niit.bean.*;
 
+import com.niit.bean.*;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(" com.niit")

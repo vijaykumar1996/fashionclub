@@ -2,8 +2,10 @@ package com.niit.bean;
 
 import javax.persistence.*;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
-@Table
+@Table(name="Product")
 public class Product {
       @Id
       @GeneratedValue
@@ -14,6 +16,15 @@ public class Product {
 	   int stock;
 	   int categoryID;
 	   int supplierId;
+	   @Transient
+	   MultipartFile pimage;
+	   
+	public MultipartFile getPimage() {
+		return pimage;
+	}
+	public void setPimage(MultipartFile pimage) {
+		this.pimage = pimage;
+	}
 	public int getProId() {
 		return proId;
 	}
