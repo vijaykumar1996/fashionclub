@@ -1,10 +1,27 @@
 package com.niit.controller;
-import java.io.*;
-import java.util.*;
+
+import java.io.BufferedOutputStream;
+
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.LinkedHashMap;
+
+
+
+
+
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.bean.Category;
@@ -18,8 +35,10 @@ public class ProductController {
 	CategoryDao categoryDao;
 	
 	@Autowired
+	SupplierDao supplierDao;
+	@Autowired
     InterfaceMethods productDao;
-	
+
 	
 	@RequestMapping("/product")
 	public String showProduct(Model m)
@@ -44,7 +63,7 @@ public class ProductController {
 	    m.addAttribute("pageinfo","Manage Product");
 	    m.addAttribute("categoryList",this.getCategories());
 	    
-	    String imagepath="C:\\Users\\ADMIN\\git\\fashionclub\\fashionclubfrontend\\src\\main\\webapp\\resources\\images\\";
+	    String imagepath="C:\\Users\\ADMIN\\git\\fashionclub\\fashionclubfrontend\\src\\main\\webapp\\resources\\images";
 	    imagepath=imagepath+String.valueOf(product.getProId())+".jpg";
 	    
 	    File image=new File(imagepath);
@@ -108,6 +127,7 @@ public class ProductController {
 		m.addAttribute("pageinfo","Manage product");
 		m.addAttribute("categoryList",this.getCategories());
 		
+		//m.addAttribute("supplierList",this.listsupplier());
 		List<Product> listProducts=productDao.alldetails();
 		m.addAttribute("productList", listProducts);
 
@@ -123,7 +143,9 @@ public class ProductController {
 		m.addAttribute("pageinfo","Manage Product");
 		
 		m.addAttribute("categoryList",this.getCategories());
-	
+		List<Product> listProducts=productDao.alldetails();
+		m.addAttribute("productList", listProducts);
+
 		return "UpdateProduct";
 	}
 	
