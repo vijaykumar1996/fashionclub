@@ -26,12 +26,14 @@ public class UserInfoTest {
 	@Test
 	public void adduserinfo(){
 		UserInfo u=new UserInfo();
-		u.setCustomerName("vijay");
-		u.setCustomerAddr("hyd");
-		u.setRole("manager");
-		u.setUsername("kumar");
+
+		u.setUsername("ravi");
+		u.setPassword("kumar@123");
+		u.setRole("ROLE_ADMIN");
 		u.setEnabled(true);
-		u.setPassword("nuuu");
-		assertTrue("Problem in adding the userinfo",userinfoDao.adduserinfo(u));
+		u.setCustomerName("camron");
+		u.setCustomerAddr("10-23/a chintal Hyd");
+
+		assertTrue("Problem in adding the userInfo",userinfoDao.adduserinfo(u));
 	}
 }

@@ -41,6 +41,7 @@ public class configuration {
         factory.addAnnotatedClass(Product.class);
         factory.addAnnotatedClass(UserInfo.class);
         factory.addAnnotatedClass(CartItem.class);
+        factory.addAnnotatedClass(OrderDetail.class);
         System.out.println("---SessionFactory object created----");
         
         return factory.buildSessionFactory();
